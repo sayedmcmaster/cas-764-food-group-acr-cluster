@@ -1,0 +1,8 @@
+SEQN - Respondent sequence number
+URXUMA - Albumin, urine (ug/mL)
+URXUMS - Albumin, urine (mg/L)
+URDUMALC - Albumin, urine comment code
+URXUCR - Creatinine, urine (mg/dL)
+URXCRS - Creatinine, urine (umol/L)
+URDUCRLC - Creatinine, urine comment code
+URDACT - Albumin creatinine ratio (mg/g)
