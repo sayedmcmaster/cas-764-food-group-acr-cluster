@@ -1,0 +1,54 @@
+\documentclass[12pt, margin=1in] {article}
+\usepackage [letterpaper, margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{lipsum}
+\usepackage{comment}
+\usepackage{multirow}
+\usepackage{subcaption}
+\newcommand{\argmax}[1]{\underset{#1}{\operatorname{arg}\operatorname{max}}\;}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{ragged2e}
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{tabularx}
+\usepackage{sectsty}
+%\sectionfont{\fontsize{12}{15}\selectfont}
+%\subsectionfont{\fontsize{11}{12}\selectfont}
+\lstset { %
+	language=C++,
+	backgroundcolor=\color{black!5}, % set backgroundcolor
+	basicstyle=\footnotesize,% basic font setting
+}
+\usepackage[titletoc,title]{appendix}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linktoc=all,
+	linkcolor=blue
+}
+\title{Predict, and Discover Relations of Mortality (and/or ACR) of CKD with Dietary Patterns}
+\author{Sayed Ahmed}
+\date{}
+\begin{document}
+\maketitle
+\tableofcontents
+\input{abstract}
+\input{introduction}
+\input{related_work}
+\input{proposed_solution}
+\input{experiments}
+\input{applications}
+\input{conclusion}
+\input{references}
+\input{appendix}
+\end{document}
