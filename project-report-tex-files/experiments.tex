@@ -1,12 +1,12 @@
 \section{Experiments}
-I used the Experiments as shown in Figure ~\ref{experiment-regular-clustering} to find associations between dietary patterns (i.e. Food Groups) and ACR. For the regression experiments, both Actual Values and Normalized values are used. However, I have reported only regression-based results based on the experiments done on normalized data. Similar experiments could be done with the clusters that I created using K-Means.
+I used the Experiments as shown in Figure ~\ref{experiment-regular-clustering} to find associations between dietary patterns (i.e. Food Groups) and ACR. For the regression experiments, both Actual Values and Normalized values are used. However, I have reported only regression-based results based on the experiments done on normalized data. Similar experiments could be done with the clusters that I created using K-Means. I have provided experiment design for K-Means Clustered Data in Figure ~\ref{experiment-regular-kmeans-clustering} to conduct similar experiments. These experiments on Clustered Data could discover additional valuable relations and associations.
 
-\begin{figure}
+\begin{figure}[!htb]
 %\begin{table}[!htb]
 \caption{\textbf{Effect of Food Groups on ACR} \\ use Age and ACR based clustering}
 \label{experiment-1}
 \vspace{0.25cm}
-\begin{tabular}{| p{4cm} | p {11cm} | }
+\begin{tabular}{| p{4cm} | p {12cm} | }
 \hline
 \noindent \textbf{Primary Input Dataset:} & Clustered dataset with demographics, and dietary intake data from 2011 to 2018. Dietary intake amounts for food groups.\\
 \hline
@@ -22,3 +22,27 @@ I used the Experiments as shown in Figure ~\ref{experiment-regular-clustering} t
 \label{experiment-regular-clustering}
 %\end{table}
 \end{figure}
+
+\begin{figure}[!htb]
+%\begin{table}[!htb]
+\caption{\textbf{Effect of Food Groups on ACR} \\ use \textbf{K-Means Clustering}}
+\label{experiment-1}
+\vspace{0.25cm}
+\begin{tabular}{| p{4cm} | p {12cm} | }
+\hline
+\noindent \textbf{Primary Input Dataset:} & K-Means Clustered dataset with demographics, and dietary intake data from 2011 to 2018. Dietary intake amounts for food groups.\\
+\hline
+\noindent \textbf{Target Variable:} & Albumin to Creatinine Ratio (ACR) \\
+\hline
+\noindent \textbf{Experiment 2.1:} & { Identify contributing and important food groups in the input dataset using PCA for the K-Means Clustered data. } \\
+\hline
+\noindent \textbf{Experiment 2.2:} & { Find out correlation (using Pearson’s correlation, between ACR Values and important food groups as found using PCA in experiment 1.1.} \\
+\hline
+\noindent \textbf{Experiment 2.3:} & { Find out regression coefficients of the important food groups (PCA) with ACR using various Regression techniques such as Linear and Polynomial Regression, Linear and Polynomial Regression with Cross Validations, Bayesian and Random Forest Regression with or without Cross Validations. Use K-Means Clustered dataset} \\
+\hline
+\end{tabular}
+\label{experiment-regular-kmeans-clustering}
+%\end{table}
+\end{figure}
+
+\pagebreak

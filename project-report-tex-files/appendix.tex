@@ -2,24 +2,10 @@
 \section{Appendix}
 
 \subsection{Code}
-I have placed the code used for the project at: https://github.com/sayedmcmaster/cas-764-food-group-acr-cluster/code %\footnote{My understanding is this subsection ideally belongs to appendix}. https://github.com/sayedmcmaster/cas-764-food-group-acr-cluster/codeoutput A list of the files and purpose is given below:
-
-%\begin{figure}
-%\begin{tabular}{|c|c|}
-%\hline
-%File & Purpose\\
-%\hline
-%$xpt\_to\_csv\_all\_files\_in\_a\_folder.ipynb$ & converts SAS XPT data files to CSV files. It converts demographics, ACR Lab Data, and Dietary Intake data into CSV files. It shows a drop-down to select the Input File and the Input data format file and then convert it. It could convert any other XPT data file such as Blood Pressure data files to CSV files as well. \\
-%\hline
-%\end{tabular}
-%\caption{\textbf{GFR, ACR and Kidney Disease (Ref: Google Images)}}
-%\label{gfr-acr-ckd-methodology}
-%\vspace{0.25cm}
-%\end{figure}
-
+\flushleft \justifying I have placed the code used for the project at: https://github.com/sayedmcmaster/cas-764-food-group-acr-cluster/code %
 
 \subsection{Dataset Generation}
-Initially, I wrote and used Python code ($xpt\_to\_csv\_all\_files\_in\_a\_folder.ipynb$) to generate data files for each year (Demographics, ACR, Dietary Intake). Then I brought the data into MS SQL Server. Then wrote and used Stored Procedures to combine each category of data, and then used another stored procedure (dietaryIntakeDataForClassificationAndAnalysis. StoredProcedure. sql) to join all these data to create the big dataset for analysis. The stored procedures can be found on GitHub under 'sayedmcmaster/cas-764-food-group-acr-cluster/code/SQL/storedprocedures/' and in Figure ~\ref{sp-combine}. This is what I used initially. However, later I wrote another Python code $automated\_xpt\_to\_csv\_all\_files.ipynb$ that can create CSV files from XPT one by one iteratively. This code ideally can combine all data input given in one shot provided the columns align. Also, wrote another Python code to merge one category of data files (I also have a stored procedure). Both approaches have some pros and cons. I am using and planning to use them as they seem appropriate. \footnote{Because the code and SQLs are only for my use, I am not making them perfect considering coding standards and performance}
+\flushleft \justifying Initially, I wrote and used Python code ($xpt\_to\_csv\_all\_files\_in\_a\_folder.ipynb$) to generate data files for each year (Demographics, ACR, Dietary Intake). Then I brought the data into MS SQL Server. Then wrote and used Stored Procedures to combine each category of data, and then used another stored procedure (dietaryIntakeDataForClassificationAndAnalysis. StoredProcedure. sql) to join all these data to create the big dataset for analysis. The stored procedures can be found on GitHub under 'sayedmcmaster/cas-764-food-group-acr-cluster/code/SQL/storedprocedures/' and in Figure ~\ref{sp-combine}. This is what I used initially. However, later I wrote another Python code $automated\_xpt\_to\_csv\_all\_files.ipynb$ that can create CSV files from XPT one by one iteratively. This code ideally can combine all data input given in one shot provided the columns align. Also, wrote another Python code to merge one category of data files (I also have a stored procedure). Both approaches have some pros and cons. I am using and planning to use them as they seem appropriate. \footnote{Because the code and SQLs are only for my use, I am not making them perfect considering coding standards and performance}
 
 \begin{figure}[!htb]
 \begin{tabular}{c}
@@ -31,7 +17,7 @@ Initially, I wrote and used Python code ($xpt\_to\_csv\_all\_files\_in\_a\_folde
 \end{figure}
 
 \subsubsection{Code for Automated (semi-automated) CSV Data generation from XPT files}
-File: $automated\_xpt\_to\_csv\_all\_files.ipynb$, Figure: ~\ref{automated-data-year}, ~\ref{automated-data-traverse}, ~\ref{automated-data-csv}
+\flushleft \justifying File: $automated\_xpt\_to\_csv\_all\_files.ipynb$, Figure: ~\ref{automated-data-year}, ~\ref{automated-data-traverse}, ~\ref{automated-data-csv}
 
 \begin{figure}[!htb]
 \begin{tabular}{c}
@@ -63,7 +49,7 @@ File: $automated\_xpt\_to\_csv\_all\_files.ipynb$, Figure: ~\ref{automated-data-
 
 %\pagebreak
 \subsubsection{Merge Data Files from Multiple Years }
-File: $merge-multiple-csv-files-with-python$, Figure: ~\ref{merge-data-files}, Purpose: We can configure this file to merge all demographics data or all dietary data, or all ACR data from multiple years into one. Some column alignments are needed in some cases where columns differ from year to year. I used Winmerge software to see the differences in data format.
+\flushleft \justifying File: $merge-multiple-csv-files-with-python$, Figure: ~\ref{merge-data-files}, Purpose: We can configure this file to merge all demographics data or all dietary data, or all ACR data from multiple years into one. Some column alignments are needed in some cases where columns differ from year to year. I used Winmerge software to see the differences in data format.
 \begin{figure}[!htb]
 \begin{tabular}{c}
 \includegraphics[scale=1]{images/datasetgenerationcode/merge-demographics-files.png} \\
@@ -75,7 +61,7 @@ File: $merge-multiple-csv-files-with-python$, Figure: ~\ref{merge-data-files}, P
 
 %\pagebreak
 \subsubsection {Cluster/Group Generation}
-I have written a code in Python to create clusters as can be seen in Figure ~\ref{python-cluster}.
+\flushleft \justifying I have written a code in Python to create clusters as can be seen in Figure ~\ref{python-cluster}.
 File: $cleaned-classifyDataBasedOnAgeAcrLevelAndThenTakeTheDietaryIntakeData.ipynb$ can be found on GitHub under the code folder. I also have written and used stored procedures to create clusters such as
 $dbo.create\_a\_class\_group\_dataset.StoredProcedure.sql$ and $dbo.create\_classified\_dataset.StoredProcedure.sql$. These can be found in GitHub under code/SQL/storedprocedures/. I have used both Python and Stored Procedures to create clusters and verify that the output is correct \footnote{If data types in database tables are not correct for age, ACR then Python may not give correct clusters. Python code needs to use type casting}.
 
@@ -90,11 +76,41 @@ $dbo.create\_a\_class\_group\_dataset.StoredProcedure.sql$ and $dbo.create\_clas
 
 
 \subsection{Correlation of Food Groups with ACR}
-Code File: $cleaned-foodgroup-acr-ratio-relation-by-agegroups-and-foods$. The code file can be found on GitHub under 'sayedmcmaster/cas-764-food-group-acr-cluster/tree/main/code/Exploratory Analysis/'. This code file generated the important food groups and correlation results as shown under the Results and Discussion section in figures ~\ref{pca-v-food-comp}, ~\ref{cluster-food-contribution}, ~\ref{corr-acr-food}, and ~\ref{corr-acr-food22}.
+\flushleft \justifying Code File: $cleaned-foodgroup-acr-ratio-relation-by-agegroups-and-foods$. The code file can be found on GitHub under 'sayedmcmaster/cas-764-food-group-acr-cluster/tree/ \\ main/code/Exploratory Analysis/'. This code file generated the important food groups and correlation results as shown under the Results and Discussion section in figures ~\ref{pca-v-food-comp}, ~\ref{cluster-food-contribution}, ~\ref{corr-acr-food}, and ~\ref{corr-acr-food22}.
 
 \subsection{Regression Coefficients contributing to ACR readings}
-Code File: $regression-foodgroup-and-acr.ipynb$. The code file can be found on GitHub under: 'sayedmcmaster/cas-764-food-group-acr-cluster/tree/main/code'. This code file uses approaches such as Regression, Polynomial Regression, Random Forest, and Bayesian to find correlation coefficients of the food groups contributing to ACR readings. It finds correlations for the entire dataset as well as for the groups.
+\flushleft \justifying Code File: $regression-foodgroup-and-acr.ipynb$. The code file can be found on GitHub under: 'sayedmcmaster/cas-764-food-group-acr-cluster/tree/main/code'. This code file uses approaches such as Regression, Polynomial Regression, Random Forest, and Bayesian to find correlation coefficients of the food groups contributing to ACR readings. It finds correlations for the entire dataset as well as for the groups.
 
 \subsection{K-Means Clustering}
-I have implemented a proof of concept K-means algorithm to cluster the data. The data is clustered based on Age and ACR levels. However, if other data such as blood pressure is brought from NHANES, CDC then the clustering can also be updated with Age, ACR, and Blood Pressure. It just will need an update to the list of features to center around.
+\flushleft \justifying I have implemented a proof of concept K-means algorithm to cluster the data. The data is clustered based on Age and ACR levels. However, if other data such as blood pressure is brought from NHANES, CDC then the clustering can also be updated with Age, ACR, and Blood Pressure. It just will need an update to the list of features to center around.
 Code File: $kmeans-cleaned-and-code-combined-in-less-number-of-blocks$. The cluster data created with Kmeans can be found under $code/nhane_output_data/classifiedGroups/kmeanscluster$.
+
+\subsection{Important Files and Locations}
+\flushleft \justifying Important Files and their Locations are as below. I ordered them in the sequence they needed to be executed (to start with). However, once you create cluster data, you can execute the analysis files in whatever sequence you want.
+
+\flushleft \justifying code/automated\_xpt\_to\_csv\_all\_files.ipynb \\
+xpt\_to\_csv\_all\_files\_in\_a\_folder.ipynb \\
+code/merge-multiple-csv-files-with-python.ipynb \\
+code/cleaned-classifyDataBasedOnAgeAcrLevelAndThenTakeTheDietaryIntakeData.ipynb \\
+code/classifyDataBasedOnAgeAcrLevelAndThenTakeTheDietaryIntakeData.ipynb \\
+code/kmeans-cleaned-and-code-combined-in-less-number-of-blocks.ipynb \\
+code/Exploratory Analysis/cleaned-foodgroup-acr-ratio-relation-by-agegroups-and-foods.ipynb \\
+code/regression-foodgroup-and-acr.ipynb \\
+
+% \footnote{My understanding is this subsection ideally belongs to appendix}. https://github.com/sayedmcmaster/cas-764-food-group-acr-cluster/codeoutput A list of the files and purpose is given below:
+
+%\begin{figure}
+%\begin{tabular}{|c|c|}
+%\hline
+%File & Purpose\\
+%\hline
+%$xpt\_to\_csv\_all\_files\_in\_a\_folder.ipynb$ & converts SAS XPT data files to CSV files. It converts demographics, ACR Lab Data, and Dietary Intake data into CSV files. It shows a drop-down to select the Input File and the Input data format file and then convert it. It could convert any other XPT data file such as Blood Pressure data files to CSV files as well. \\
+%\hline
+%\end{tabular}
+%\caption{\textbf{GFR, ACR and Kidney Disease (Ref: Google Images)}}
+%\label{gfr-acr-ckd-methodology}
+%\vspace{0.25cm}
+%\end{figure}
+
+
+
